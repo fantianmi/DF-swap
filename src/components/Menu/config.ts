@@ -1,4 +1,5 @@
 import { MenuEntry } from 'dfswap-ui'
+import { ContextApi } from 'contexts/Localization/types'
 
 const config: MenuEntry[] = [
   {
