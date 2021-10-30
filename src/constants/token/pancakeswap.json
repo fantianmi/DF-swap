@@ -44,14 +44,14 @@
       "symbol": "ANST",
       "address": "0x5d0abafdab5cd176230c445879f9f62e3fd12c55",
       "chainId": 56,
-      "decimals": 18,
+      "decimals": 9,
       "logoURI": "/images/coins/ANST.png"
     },{
       "name": "DashSports",
       "symbol": "DASS",
       "address": "0xca981cb99478d190cac2de266ed04e06e341e30e",
       "chainId": 56,
-      "decimals": 18,
+      "decimals": 9,
       "logoURI": "/images/coins/DASS.png"
     }
     
