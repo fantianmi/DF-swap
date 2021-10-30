@@ -7,7 +7,7 @@
     "patch": 1
   },
   "tags": {},
-  "logoURI": "/images/coins/wbnb.png",
+  "logoURI": "/images/coins/WBNB.png",
   "keywords": ["pancake", "default"],
   "tokens": [
     {
@@ -31,7 +31,7 @@
       "address": "0x55d398326f99059ff775485246999027b3197955",
       "chainId": 56,
       "decimals": 18,
-      "logoURI": "/images/coins/USDT-icon.png"
+      "logoURI": "/images/coins/USDT.png"
     },{
       "name": "DaFuweng Token",
       "symbol": "DF",
