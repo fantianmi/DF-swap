@@ -1,12 +1,15 @@
 import React, { useContext } from 'react'
 import { Menu as UikitMenu } from 'dfswap-ui'
 import { useWeb3React } from '@web3-react/core'
-import { allLanguages } from 'constants/localisation/languageCodes'
+import { allLanguages,EN ,ZHCN } from 'constants/localisation/languageCodes'
 import { LanguageContext } from 'hooks/LanguageContext'
 import useTheme from 'hooks/useTheme'
 import useGetPriceData from 'hooks/useGetPriceData'
 import { injected, bsc, walletconnect } from 'connectors'
+import useI18n from 'hooks/useI18n'
 import links from './config'
+
+
 
 declare type ConnectorId = "authereum" | "fortmatic" | "frame" | "injected" | "portis" | "squarelink" | "torus" | "walletconnect" | "walletlink" | "bsc";
 const Menu: React.FC = props => {
@@ -14,10 +17,16 @@ const Menu: React.FC = props => {
   const { selectedLanguage, setSelectedLanguage } = useContext(LanguageContext)
   const { isDark, toggleTheme } = useTheme()
   const cakePriceUsd = useGetPriceData()
+  const TranslateString = useI18n()
+
+  // setSelectedLanguage(ZHCN)
+
+  // {code: 'zh-CN', language: '简体中文'}
+  console.log(selectedLanguage)
 
   return (
     <UikitMenu
-      links={links}
+    links={links(TranslateString)}
       account={account as string}
       login={(connectorId: ConnectorId) => {
         if (connectorId === 'walletconnect') {
@@ -33,7 +42,7 @@ const Menu: React.FC = props => {
       logout={deactivate}
       isDark={isDark}
       toggleTheme={toggleTheme}
-      currentLang={selectedLanguage?.code || ''}
+      currentLang={selectedLanguage && selectedLanguage.code}
       langs={allLanguages}
       setLang={setSelectedLanguage}
       cakePriceUsd={cakePriceUsd}

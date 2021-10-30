@@ -1,97 +1,57 @@
 import { MenuEntry } from 'dfswap-ui'
-import { ContextApi } from 'contexts/Localization/types'
 
-const config: MenuEntry[] = [
+export interface ContextApi {
+  translate: (code: number, language: string) => string
+}
+
+const farmUrl = "http://dfw.btcsoft.cn"
+
+const config: (translate: ContextApi['translate']) => MenuEntry[] = (TranslateString) => [
   {
-    label: 'Home',
+    label: TranslateString(670, 'Home'),
     icon: 'HomeIcon',
-    href: 'https://www.goosedefi.com/'
+    href: `${farmUrl}`,
   },
   {
-    label: 'Trade',
+    label: TranslateString(672, 'Trade'),
     icon: 'TradeIcon',
     initialOpenState: true,
     items: [
       {
-        label: 'Exchange',
+        label: TranslateString(284, 'Exchange'),
         href: '/swap'
       },
       {
-        label: 'Liquidity',
+        label: TranslateString(686, 'Liquidity'),
         href: '/pool'
       }
     ]
   },
   {
-    label: 'Farms',
+    label: TranslateString(674, 'Farm'),
     icon: 'FarmIcon',
-    href: 'https://www.goosedefi.com/farms'
+    href: `${farmUrl}/#/farms`,
   },
   {
-    label: 'Nests',
+    label: TranslateString(676, 'Pools'),
     icon: 'PoolIcon',
-    href: 'https://www.goosedefi.com/nests'
+    href: `${farmUrl}/#/pools`,
+  },
+  {
+    label: TranslateString(20020, 'Refferals'),
+    icon: 'referralIcon',
+    href: `${farmUrl}/#/refferals`,
+  },
+  {
+    label: TranslateString(708, 'Lottery'),
+    icon: 'TicketIcon',
+    href: `${farmUrl}/#/Lottery`,
   },
   // {
-  //   label: 'Lottery',
-  //   icon: 'TicketIcon',
-  //   href: 'https://www.goosedefi.com/lottery'
+  //   label: TranslateString(20000,'Roulette'),
+  //   icon: 'TicketIcon2',
+  //   href: `${farmUrl}/#/roulette`,
   // },
-  {
-    label: 'Info',
-    icon: 'InfoIcon',
-    items: [
-      {
-        label: 'PancakeSwap',
-        href: 'https://pancakeswap.info/token/0xF952Fc3ca7325Cc27D15885d37117676d25BfdA6',
-      },
-      {
-        label: 'CoinGecko',
-        href: 'https://www.coingecko.com/en/coins/goose-finance',
-      },
-      {
-        label: 'CoinMarketCap',
-        href: 'https://coinmarketcap.com/currencies/goose-finance/',
-      },
-      {
-        label: 'AstroTools',
-        href: 'https://app.astrotools.io/pancake-pair-explorer/0x19e7cbecdd23a16dfa5573df54d98f7caae03019',
-      },
-    ]
-  },
-  {
-    label: 'More',
-    icon: 'MoreIcon',
-    items: [
-      {
-        label: "Github",
-        href: "https://github.com/goosedefi/",
-      },
-      {
-        label: "Docs",
-        href: "https://goosedefi.gitbook.io/goose-finance/",
-      },
-      {
-        label: "Blog",
-        href: "https://goosefinance.medium.com/",
-      },
-    ],
-  },
-  {
-    label: 'Partnerships/IFO',
-    icon: 'GooseIcon',
-    href: 'https://docs.google.com/forms/d/e/1FAIpQLSe7ycrw8Dq4C5Vjc9WNlRtTxEhFDB1Ny6jlAByZ2Y6qBo7SKg/viewform?usp=sf_link',
-  },
-  {
-    label: 'Audit by Hacken',
-    icon: 'AuditIcon',
-    href: 'https://www.goosedefi.com/files/hackenAudit.pdf',
-  },
-  {
-    label: 'Audit by CertiK',
-    icon: 'AuditIcon',
-    href: 'https://certik.org/projects/goose-finance',
-  },
 ]
 
 export default config

@@ -59,32 +59,34 @@ export default function App() {
   const [selectedLanguage, setSelectedLanguage] = useState<any>(undefined)
   const [translatedLanguage, setTranslatedLanguage] = useState<any>(undefined)
   const [translations, setTranslations] = useState<Array<any>>([])
-  // const apiKey = `${process.env.REACT_APP_CROWDIN_APIKEY}`
-  // const projectId = parseInt(`${process.env.REACT_APP_CROWDIN_PROJECTID}`)
-  // const fileId = 6
-  //
+
+  const apiKey = `${process.env.REACT_APP_CROWDIN_APIKEY}`
+  const projectId = parseInt(`${process.env.REACT_APP_CROWDIN_PROJECTID}`)
+  const fileId = 6
+  
   // const credentials: Credentials = {
   //   token: apiKey
   // }
-  //
-  // const stringTranslationsApi = new StringTranslations(credentials)
-  //
-  // const getStoredLang = (storedLangCode: string) => {
-  //   return allLanguages.filter(language => {
-  //     return language.code === storedLangCode
-  //   })[0]
-  // }
+  
 
-  // useEffect(() => {
-  //   const storedLangCode = localStorage.getItem('pancakeSwapLanguage')
-  //   if (storedLangCode) {
-  //     const storedLang = getStoredLang(storedLangCode)
-  //     setSelectedLanguage(storedLang)
-  //   } else {
-  //     setSelectedLanguage(EN)
-  //   }
-  // }, [])
-  //
+  // const stringTranslationsApi = new StringTranslations(credentials)
+  
+  const getStoredLang = (storedLangCode: string) => {
+    return allLanguages.filter(language => {
+      return language.code === storedLangCode
+    })[0]
+  }
+
+  useEffect(() => {
+    const storedLangCode = localStorage.getItem('pancakeSwapLanguage')
+    if (storedLangCode) {
+      const storedLang = getStoredLang(storedLangCode)
+      setSelectedLanguage(storedLang)
+    } else {
+      setSelectedLanguage(EN)
+    }
+  }, [])
+  
   // const fetchTranslationsForSelectedLanguage = async () => {
   //   stringTranslationsApi
   //     .listLanguageTranslations(projectId, selectedLanguage.code, undefined, fileId, 200)
@@ -101,7 +103,7 @@ export default function App() {
   //       console.error(error)
   //     })
   // }
-  //
+  
   // useEffect(() => {
   //   if (selectedLanguage) {
   //     fetchTranslationsForSelectedLanguage()
